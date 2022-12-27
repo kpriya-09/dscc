@@ -1,0 +1,13 @@
+Dockerfile
+
+FROM php:7.4-cli
+COPY . /usr/src/myapp
+WORKDIR /usr/src/myapp
+CMD [ "php", "./your-script.php" ]
+
+Run
+
+$ docker build -t my-php-app .
+$ docker run -it --rm --name my-running-app my-php-app
+
+$ docker run -d -p 80:80 --name my-apache-php-app -v "$PWD":/var/www/html php:7.2-apache
