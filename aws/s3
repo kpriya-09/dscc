@@ -1,0 +1,33 @@
+Navigate to S3 in the AWS Console.
+Click into your bucket.
+Click the “Properties” section.
+Click the “Static website hosting” option.
+Select “Use this bucket to host a website”.
+Enter “index.html” as the Index document.
+
+Click into your bucket.
+Select the “Permissions” tab at the top.
+Under “Public Access Settings” we want to click “Edit”.
+Change “Block new public bucket policies”, “Block public and cross-account access if bucket has public policies”, and “Block new public ACLs and uploading public objects” to be false and Save.
+
+Navigate to S3 in the AWS Console.
+Click into your bucket.
+Click the “Permissions” section.
+Select “Bucket Policy”.
+Add the following Bucket Policy and then Save
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublicReadGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::Bucket-Name/*"
+            ]
+        }
+    ]
+}
