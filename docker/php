@@ -5,6 +5,12 @@ COPY . /usr/src/myapp
 WORKDIR /usr/src/myapp
 CMD [ "php", "./your-script.php" ]
 
+
+php file
+<?php
+echo "Hello World!";
+?>
+
 Run
 
 $ docker build -t my-php-app .
